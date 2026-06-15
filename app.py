@@ -40,62 +40,61 @@ st.set_page_config(
 # ─────────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
 
-html,body,[class*="css"]{
-    font-family:'Space Grotesk',sans-serif;
-    background:#02060e;
-    color:#e6edf3;
+/* ✅ FORCE FULL DARK MODE BACKGROUND */
+.stApp {
+    background-color: #02060e !important;
+    color: #e6edf3 !important;
 }
 
-.main-header{
-    background:linear-gradient(135deg,#061020,#0d1828,#061020);
-    border:1px solid rgba(56,139,253,0.25);
-    border-radius:16px;
-    padding:28px 36px;
-    margin-bottom:24px;
-    position:relative;
-    overflow:hidden;
+/* Main container */
+.block-container {
+    background-color: #02060e !important;
+    padding-top: 2rem;
 }
 
-.main-header::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:radial-gradient(ellipse at 20% 50%,rgba(56,139,253,0.08) 0%,transparent 60%),
-               radial-gradient(ellipse at 80% 50%,rgba(57,213,213,0.06) 0%,transparent 60%);
+/* Text visibility fix */
+html, body, [class*="css"]  {
+    color: #e6edf3 !important;
 }
 
-.main-header h1{
-    font-size:2.4rem;
-    font-weight:800;
-    margin:0;
-    background:linear-gradient(90deg,#58a6ff,#39d5d5,#bc8cff);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+/* Input box fix */
+.stTextInput input, .stTextArea textarea {
+    background-color: #0d1828 !important;
+    color: #e6edf3 !important;
+    border: 1px solid rgba(56,139,253,0.3) !important;
 }
 
-.main-header p{
-    color:#8b949e;
-    margin:6px 0 0;
-    font-size:.95rem;
+/* ✅ BUTTON FIX (THIS IS WHY YOUR BUTTON DISAPPEARS) */
+.stButton > button {
+    background: linear-gradient(135deg,#388bfd,#39d5d5) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    padding: 10px 20px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
-.result-card, .step-card{
-    color:#e6edf3 !important;
+/* Result cards */
+.result-card, .step-card {
+    background-color: #0b1422 !important;
+    color: #e6edf3 !important;
 }
 
-/* Streamlit text fix */
-.stMarkdown, .stMarkdown p, .stMarkdown div{
-    color:#e6edf3 !important;
+/* Fix markdown invisibility */
+.stMarkdown {
+    color: #e6edf3 !important;
 }
 
-.stApp{
-    color:#e6edf3 !important;
+/* Sidebar fix */
+section[data-testid="stSidebar"] {
+    background-color: #061020 !important;
 }
+
 </style>
 """, unsafe_allow_html=True)
-
 # ─────────────────────────────────────────────────────────────────
 # SESSION STATE
 # ─────────────────────────────────────────────────────────────────
