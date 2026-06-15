@@ -35,54 +35,66 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────
 # CSS
 # ─────────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
-html,body,[class*="css"]{font-family:'Space Grotesk',sans-serif;background:#02060e;color:#e6edf3}
-.main-header{background:linear-gradient(135deg,#061020,#0d1828,#061020);border:1px solid rgba(56,139,253,0.25);border-radius:16px;padding:28px 36px;margin-bottom:24px;position:relative;overflow:hidden}
-.main-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(56,139,253,0.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 50%,rgba(57,213,213,0.06) 0%,transparent 60%)}
-.main-header h1{font-size:2.4rem;font-weight:800;margin:0;background:linear-gradient(90deg,#58a6ff,#39d5d5,#bc8cff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;position:relative}
-.main-header p{color:#8b949e;margin:6px 0 0;font-size:.95rem;position:relative}
-.math-card{background:#080f1c;border:1px solid rgba(56,139,253,0.18);border-radius:12px;padding:20px 22px;margin-bottom:16px}
-.result-card{background:linear-gradient(135deg,#061020,#0d1828);border:1px solid rgba(56,139,253,0.3);border-left:3px solid #58a6ff;border-radius:12px;padding:20px 22px;margin:12px 0}
-.step-card{background:#0b1422;border:1px solid rgba(56,139,253,0.12);border-radius:10px;padding:16px 18px;margin:8px 0;border-left:2px solid #39d5d5}
-.success-card{background:rgba(63,185,80,0.06);border:1px solid rgba(63,185,80,0.25);border-radius:10px;padding:14px 18px}
-.badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:4px;font-family:'JetBrains Mono',monospace}
-.badge-blue{background:rgba(56,139,253,0.15);color:#79c0ff;border:1px solid rgba(56,139,253,0.3)}
-.badge-cyan{background:rgba(57,213,213,0.12);color:#56e0e0;border:1px solid rgba(57,213,213,0.3)}
-.badge-green{background:rgba(63,185,80,0.12);color:#56d364;border:1px solid rgba(63,185,80,0.3)}
-.badge-purple{background:rgba(163,113,247,0.12);color:#bc8cff;border:1px solid rgba(163,113,247,0.3)}
-.badge-gold{background:rgba(227,179,65,0.12);color:#f0c060;border:1px solid rgba(227,179,65,0.3)}
-.math-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(56,139,253,0.3),transparent);margin:16px 0}
-.hist-item{background:#0b1422;border:1px solid rgba(56,139,253,0.12);border-radius:8px;padding:10px 14px;margin:6px 0;font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#8b949e}
-.stTextInput>div>div>input,.stTextArea>div>div>textarea{background:#0d1828!important;border:1px solid rgba(56,139,253,0.25)!important;border-radius:8px!important;color:#e6edf3!important;font-family:'JetBrains Mono',monospace!important}
-.stButton>button{background:linear-gradient(135deg,#388bfd,#39d5d5)!important;border:none!important;border-radius:8px!important;color:white!important;font-weight:700!important;font-family:'Space Grotesk',sans-serif!important;padding:10px 24px!important}
-.stSelectbox>div>div{background:#0d1828!important;border-color:rgba(56,139,253,0.25)!important}
-.stTabs [data-baseweb="tab-list"]{background:#080f1c;border-bottom:1px solid rgba(56,139,253,0.18)}
-.stTabs [data-baseweb="tab"]{color:#8b949e}
-.stTabs [aria-selected="true"]{color:#58a6ff!important}
+
+html,body,[class*="css"]{
+    font-family:'Space Grotesk',sans-serif;
+    background:#02060e;
+    color:#e6edf3;
+}
+
+.main-header{
+    background:linear-gradient(135deg,#061020,#0d1828,#061020);
+    border:1px solid rgba(56,139,253,0.25);
+    border-radius:16px;
+    padding:28px 36px;
+    margin-bottom:24px;
+    position:relative;
+    overflow:hidden;
+}
+
+.main-header::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:radial-gradient(ellipse at 20% 50%,rgba(56,139,253,0.08) 0%,transparent 60%),
+               radial-gradient(ellipse at 80% 50%,rgba(57,213,213,0.06) 0%,transparent 60%);
+}
+
+.main-header h1{
+    font-size:2.4rem;
+    font-weight:800;
+    margin:0;
+    background:linear-gradient(90deg,#58a6ff,#39d5d5,#bc8cff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.main-header p{
+    color:#8b949e;
+    margin:6px 0 0;
+    font-size:.95rem;
+}
+
+.result-card, .step-card{
+    color:#e6edf3 !important;
+}
+
+/* Streamlit text fix */
+.stMarkdown, .stMarkdown p, .stMarkdown div{
+    color:#e6edf3 !important;
+}
+
+.stApp{
+    color:#e6edf3 !important;
+}
 </style>
 """, unsafe_allow_html=True)
-/* ✅ FORCE TEXT VISIBILITY INSIDE STREAMLIT MARKDOWN */
-.stMarkdown, .stMarkdown p, .stMarkdown div {
-    color: #e6edf3 !important;
-}
-
-/* ✅ FIX HTML INSIDE CUSTOM CARDS */
-.result-card, .result-card * {
-    color: #e6edf3 !important;
-}
-
-.step-card, .step-card * {
-    color: #e6edf3 !important;
-}
-
-/* ✅ FIX STREAMLIT MAIN APP CONTAINER */
-.stApp {
-    color: #e6edf3 !important;
-}
 
 # ─────────────────────────────────────────────────────────────────
 # SESSION STATE
