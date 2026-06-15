@@ -65,6 +65,24 @@ html,body,[class*="css"]{font-family:'Space Grotesk',sans-serif;background:#0206
 .stTabs [aria-selected="true"]{color:#58a6ff!important}
 </style>
 """, unsafe_allow_html=True)
+/* ✅ FORCE TEXT VISIBILITY INSIDE STREAMLIT MARKDOWN */
+.stMarkdown, .stMarkdown p, .stMarkdown div {
+    color: #e6edf3 !important;
+}
+
+/* ✅ FIX HTML INSIDE CUSTOM CARDS */
+.result-card, .result-card * {
+    color: #e6edf3 !important;
+}
+
+.step-card, .step-card * {
+    color: #e6edf3 !important;
+}
+
+/* ✅ FIX STREAMLIT MAIN APP CONTAINER */
+.stApp {
+    color: #e6edf3 !important;
+}
 
 # ─────────────────────────────────────────────────────────────────
 # SESSION STATE
